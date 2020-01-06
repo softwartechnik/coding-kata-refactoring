@@ -1,3 +1,3 @@
 public interface Password {
-  boolean verify();
+  void verify() throws ValidationException;
 }

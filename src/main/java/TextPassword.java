@@ -10,8 +10,11 @@ public final class TextPassword implements Password {
   }
 
   @Override
-  public boolean verify() {
-    return criterion.test(this);
+  public void verify() throws ValidationException {
+    var isValid = criterion.test(this);
+    if (!isValid) {
+      throw ValidationException.withMessage("Password is invalid");
+    }
   }
 
   @Override
